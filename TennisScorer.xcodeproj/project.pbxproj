@@ -15,6 +15,7 @@
 		C080B473268DAB3A003F3CE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C080B472268DAB3A003F3CE0 /* Assets.xcassets */; };
 		C080B476268DAB3A003F3CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C080B474268DAB3A003F3CE0 /* LaunchScreen.storyboard */; };
 		C080B481268DAB3A003F3CE0 /* TennisScorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B480268DAB3A003F3CE0 /* TennisScorerTests.swift */; };
+		C080B4A0268DB128003F3CE0 /* The_Led_Display_St.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,7 @@
 		C080B47C268DAB3A003F3CE0 /* TennisScorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisScorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C080B480268DAB3A003F3CE0 /* TennisScorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisScorerTests.swift; sourceTree = "<group>"; };
 		C080B482268DAB3A003F3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C080B48B268DAB3A003F3CE0 /* TennisScorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisScorerUITests.swift; sourceTree = "<group>"; };
-		C080B48D268DAB3A003F3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = The_Led_Display_St.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,6 @@
 			children = (
 				C080B465268DAB3A003F3CE0 /* TennisScorer */,
 				C080B47F268DAB3A003F3CE0 /* TennisScorerTests */,
-				C080B48A268DAB3A003F3CE0 /* TennisScorerUITests */,
 				C080B464268DAB3A003F3CE0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +91,7 @@
 				C080B474268DAB3A003F3CE0 /* LaunchScreen.storyboard */,
 				C080B477268DAB3A003F3CE0 /* Info.plist */,
 				C080B46F268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld */,
+				C080B4A1268DB13E003F3CE0 /* fonts */,
 			);
 			path = TennisScorer;
 			sourceTree = "<group>";
@@ -105,13 +105,12 @@
 			path = TennisScorerTests;
 			sourceTree = "<group>";
 		};
-		C080B48A268DAB3A003F3CE0 /* TennisScorerUITests */ = {
+		C080B4A1268DB13E003F3CE0 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				C080B48B268DAB3A003F3CE0 /* TennisScorerUITests.swift */,
-				C080B48D268DAB3A003F3CE0 /* Info.plist */,
+				C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */,
 			);
-			path = TennisScorerUITests;
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +195,7 @@
 			files = (
 				C080B476268DAB3A003F3CE0 /* LaunchScreen.storyboard in Resources */,
 				C080B473268DAB3A003F3CE0 /* Assets.xcassets in Resources */,
+				C080B4A0268DB128003F3CE0 /* The_Led_Display_St.ttf in Resources */,
 				C080B46E268DAB3A003F3CE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
