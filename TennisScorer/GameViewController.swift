@@ -63,6 +63,25 @@ class GameViewController: UIViewController {
     var counterCurrentScoreP1: Int = 0
     var counterCurrentScoreP2: Int = 0
     
+    enum MatchType: Int {
+        case bestOf3 = 2
+        case bestOf5 = 3
+    }
+    
+    enum GameScore: String, Equatable {
+        case love = "00"
+        case fifteen = "15"
+        case thirty = "30"
+        case forty = "40"
+    }
+    
+//    struct Score: Equatable {
+//
+//        let sets: [(Int, Int)]
+//        let currentGame: (GameScore, GameScore)
+//
+//    }
+    
     
     //MARK: - HELPERS
     
