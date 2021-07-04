@@ -62,9 +62,6 @@ class GameViewController: UIViewController {
     var counterSet5P2: Int = 0
     var counterCurrentScoreP1: Int = 0
     var counterCurrentScoreP2: Int = 0
-    var wonSetP1: Int = 0
-    var wonSetP2: Int = 0
-    
     
     
     //MARK: - HELPERS
@@ -122,62 +119,83 @@ class GameViewController: UIViewController {
     
     // Pour gagner un joueur doit avoir gagné 3 sets
     func whoWonBestOf5() {
-        var player1ScoresArray: [String?] = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
+        var player1ScoresArray = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
         
-        for i 
-
-        if scoreSet1P1.text == "6" {
-            wonSetP1 += 1
-        }
-        
-        if scoreSet2P1.text == "6" {
-            wonSetP1 += 1
-        }
-        
-        if scoreSet3P1.text == "6" {
-            wonSetP1 += 1
-        }
-        
-        if scoreSet4P1.text == "6" {
-            wonSetP1 += 1
-        }
-        
-        if scoreSet5P1.text == "6" {
-            wonSetP1 += 1
-        }
-      
-        
-        if scoreSet1P1.text == "6" {
-            wonSetP2 += 1
-        }
-        
-        if scoreSet2P1.text == "6" {
-            wonSetP2 += 1
-        }
-        
-        if scoreSet3P1.text == "6" {
-            wonSetP2 += 1
-        }
-        
-        if scoreSet4P1.text == "6" {
-            wonSetP2 += 1
-        }
-        
-        if scoreSet5P1.text == "6" {
-            wonSetP2 += 1
-        }
+        var player2ScoresArray = [scoreSet1P2.text, scoreSet2P2.text, scoreSet3P2.text, scoreSet4P2.text, scoreSet5P2.text]
         
 
-        if wonSetP1 == 3 {
+        var nbSetWonP1 = 0
+        player1ScoresArray.forEach {
+            x in if x == "6" {
+                nbSetWonP1 += 1
+            }
+        print("nb de sets gagnés par 1st player \(nbSetWonP1)")
+        }
+        
+        var nbSetWonP2 = 0
+        player2ScoresArray.forEach {
+            x in if x == "6" {
+                nbSetWonP2 += 1
+            }
+        print("nb de sets gagnés par 1st player \(nbSetWonP2)")
+        }
+    
+//
+//        if scoreSet1P1.text == "6" {
+//            wonSetP1 += 1
+//        }
+//
+//        if scoreSet2P1.text == "6" {
+//            wonSetP1 += 1
+//        }
+//
+//        if scoreSet3P1.text == "6" {
+//            wonSetP1 += 1
+//        }
+//
+//        if scoreSet4P1.text == "6" {
+//            wonSetP1 += 1
+//        }
+//
+//        if scoreSet5P1.text == "6" {
+//            wonSetP1 += 1
+//        }
+//
+//
+//        if scoreSet1P1.text == "6" {
+//            wonSetP2 += 1
+//        }
+//
+//        if scoreSet2P1.text == "6" {
+//            wonSetP2 += 1
+//        }
+//
+//        if scoreSet3P1.text == "6" {
+//            wonSetP2 += 1
+//        }
+//
+//        if scoreSet4P1.text == "6" {
+//            wonSetP2 += 1
+//        }
+//
+//        if scoreSet5P1.text == "6" {
+//            wonSetP2 += 1
+//        }
+        
+
+        if nbSetWonP1 == 3 {
             // alert
             let alert = UIAlertController(title: "Match terminé",
                                           message: "Le vainqueur est le joueur 1",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
+            
+            btnPlayer1.isHidden = true
+            btnPlayer2.isHidden = true
         }
         
-        if wonSetP2 == 3 {
+        if nbSetWonP2 == 3 {
             // alert
             let alert = UIAlertController(title: "Match terminé",
                                           message: "Le vainqueur est le joueur 2",
@@ -188,9 +206,6 @@ class GameViewController: UIViewController {
             btnPlayer1.isHidden = true
             btnPlayer2.isHidden = true
         }
-
-        print("number of set won by 1st player : \(wonSetP1)")
-        print("number of set won by 2nd player: \(wonSetP2)")
   
     }
     
