@@ -57,6 +57,8 @@ class GameViewController: UIViewController {
     var counterSetP2: Int = 0
     var counterCurrentScoreP1: Int = 0
     var counterCurrentScoreP2: Int = 0
+    var wonSetP1: Int = 0
+    var wonSetP2: Int = 0
     
     //MARK: - HELPERS
     
@@ -74,8 +76,14 @@ class GameViewController: UIViewController {
 //        }
 //    }
 
-    func incrementScoreSet() {
-        
+
+    
+    func incrementSetScoreP1() {
+        counterSetP1 = counterSetP1 + 1
+    }
+    
+    func incrementSetScoreP2() {
+        counterSetP2 = counterSetP2 + 1
     }
     
     
@@ -96,15 +104,18 @@ class GameViewController: UIViewController {
         }
         
         if (CounterGameP1 == 4) {
+            incrementSetScoreP1()
+            print("P1 \(counterSetP1)")
+            scoreSet1P1.text = String(counterSetP1)
             CounterGameP1 = 0
             currentScoreP1.text = "0"
             currentScoreP2.text = "0"
         }
         
-        if (CounterGameP1 == 4) && (CounterGameP2 < CounterGameP1) {
-            scoreSet1P1.text = "1"
-        }
+
     }
+    
+
     
 
     @IBAction func player2BtnPressed(_ sender: Any) {
@@ -123,16 +134,14 @@ class GameViewController: UIViewController {
             currentScoreP2.text = "40"
         }
         if (CounterGameP2 == 4) {
-            scoreSet1P2.text = "1"
+            incrementSetScoreP2()
+            print("P2 \(counterSetP2)")
+            scoreSet1P2.text = String(counterSetP2)
             CounterGameP2 = 0
             currentScoreP2.text = "0"
             currentScoreP1.text = "0"
         }
-        
-        if (CounterGameP2 == 4) && (CounterGameP1 < CounterGameP2) {
-            scoreSet1P1.text = "1"
-            
-        }
+
     }
     
 }
