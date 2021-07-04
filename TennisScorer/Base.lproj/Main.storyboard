@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TennisScorer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="homeViewController" customModule="TennisScorer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,6 +38,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM8-vN-eqI">
                                 <rect key="frame" x="409" y="272.5" width="78" height="30"/>
                                 <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <segue destination="upP-sM-R0j" kind="show" identifier="showGameScreen" id="Nbw-rj-D5h"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n4W-lY-NvL">
                                 <rect key="frame" x="373.5" y="110.5" width="149" height="32"/>
@@ -63,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="132" y="117"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="FvJ-6T-J5T">
             <objects>
-                <viewController id="upP-sM-R0j" sceneMemberID="viewController">
+                <viewController id="upP-sM-R0j" customClass="GameViewController" customModule="TennisScorer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uPC-cY-Q5M">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,13 +83,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J48-XP-M5T" userLabel="Set 1">
                                                 <rect key="frame" x="0.0" y="0.0" width="45.5" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-iz-1LT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-iz-1LT">
                                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zF-fG-gUh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zF-fG-gUh">
                                                         <rect key="frame" x="0.0" y="97.5" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
@@ -97,13 +100,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3kg-yP-xUx" userLabel="Set 2">
                                                 <rect key="frame" x="85.5" y="0.0" width="45.5" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-77-jrJ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-77-jrJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxC-aJ-S9o">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxC-aJ-S9o">
                                                         <rect key="frame" x="0.0" y="97.5" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
@@ -114,13 +117,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R3f-jW-V16" userLabel="Set 3">
                                                 <rect key="frame" x="171" y="0.0" width="45.5" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0Q-oN-kfQ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0Q-oN-kfQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvC-fg-5JM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvC-fg-5JM">
                                                         <rect key="frame" x="0.0" y="97.5" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
@@ -131,13 +134,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S00-t6-tHd" userLabel="Set 4">
                                                 <rect key="frame" x="256.5" y="0.0" width="45.5" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-fL-VNO">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-fL-VNO">
                                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsW-sZ-qFQ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsW-sZ-qFQ">
                                                         <rect key="frame" x="0.0" y="97.5" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
@@ -148,13 +151,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ONc-Ec-d74" userLabel="Set 5">
                                                 <rect key="frame" x="342" y="0.0" width="45.5" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYq-61-HeS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYq-61-HeS">
                                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12L-uo-jS9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12L-uo-jS9">
                                                         <rect key="frame" x="0.0" y="97.5" width="45.5" height="97.5"/>
                                                         <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                         <nil key="textColor"/>
@@ -167,13 +170,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LB0-9o-lj5" userLabel="score actuel">
                                         <rect key="frame" x="487.5" y="0.0" width="45.5" height="195"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wf-ay-2AP">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wf-ay-2AP">
                                                 <rect key="frame" x="0.0" y="0.0" width="45.5" height="97.5"/>
                                                 <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iru-0B-eTY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iru-0B-eTY">
                                                 <rect key="frame" x="0.0" y="97.5" width="45.5" height="97.5"/>
                                                 <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="60"/>
                                                 <nil key="textColor"/>
@@ -188,11 +191,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="31" height="77"/>
                                                 <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="40"/>
                                                 <state key="normal" title="+"/>
+                                                <connections>
+                                                    <action selector="player1ScoreButtonPressed:" destination="upP-sM-R0j" eventType="touchUpInside" id="Mij-qt-KbT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cX2-Xh-IXG">
                                                 <rect key="frame" x="0.0" y="77" width="31" height="118"/>
                                                 <fontDescription key="fontDescription" name="TheLedDisplaySt" family="The Led Display St" pointSize="40"/>
                                                 <state key="normal" title="+"/>
+                                                <connections>
+                                                    <action selector="player2BtnPressed:" destination="upP-sM-R0j" eventType="touchUpInside" id="sBr-9B-fYp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -206,6 +215,25 @@
                             <constraint firstItem="O01-oe-QYM" firstAttribute="centerY" secondItem="uPC-cY-Q5M" secondAttribute="centerY" id="u47-Sj-N1W"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="UZP-Q1-DtY"/>
+                    <connections>
+                        <outlet property="btnPlayer1" destination="SwZ-i3-gpD" id="PNI-9I-FOy"/>
+                        <outlet property="btnPlayer2" destination="cX2-Xh-IXG" id="RIH-Q2-Ww4"/>
+                        <outlet property="currentScoreP1" destination="6Wf-ay-2AP" id="wQo-eI-iCb"/>
+                        <outlet property="currentScoreP2" destination="iru-0B-eTY" id="K1Q-wx-sbY"/>
+                        <outlet property="scoreSet1P1" destination="Krr-iz-1LT" id="kzc-VR-hbK"/>
+                        <outlet property="scoreSet1P2" destination="6zF-fG-gUh" id="K5y-uT-zIb"/>
+                        <outlet property="scoreSet2P1" destination="TvS-77-jrJ" id="FNj-NS-jOx"/>
+                        <outlet property="scoreSet2P2" destination="yxC-aJ-S9o" id="xfw-9q-a3h"/>
+                        <outlet property="scoreSet3P1" destination="F0Q-oN-kfQ" id="l0R-n3-DPH"/>
+                        <outlet property="scoreSet3P2" destination="kvC-fg-5JM" id="awB-sP-XZm"/>
+                        <outlet property="scoreSet4P1" destination="Nhl-fL-VNO" id="qGN-fV-sOy"/>
+                        <outlet property="scoreSet4P2" destination="WsW-sZ-qFQ" id="0CQ-Wd-SA2"/>
+                        <outlet property="scoreSet5P1" destination="Nhl-fL-VNO" id="oMz-RT-Mqy"/>
+                        <outlet property="scoreSet5P2" destination="WsW-sZ-qFQ" id="9yu-ek-36C"/>
+                        <outlet property="scoreSet6P1" destination="AYq-61-HeS" id="hcI-vm-85M"/>
+                        <outlet property="scoreSet6P2" destination="12L-uo-jS9" id="eNe-qn-rOK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZa-KH-RYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
