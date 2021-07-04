@@ -232,10 +232,8 @@
                         <outlet property="scoreSet3P2" destination="kvC-fg-5JM" id="awB-sP-XZm"/>
                         <outlet property="scoreSet4P1" destination="Nhl-fL-VNO" id="qGN-fV-sOy"/>
                         <outlet property="scoreSet4P2" destination="WsW-sZ-qFQ" id="0CQ-Wd-SA2"/>
-                        <outlet property="scoreSet5P1" destination="Nhl-fL-VNO" id="oMz-RT-Mqy"/>
-                        <outlet property="scoreSet5P2" destination="WsW-sZ-qFQ" id="9yu-ek-36C"/>
-                        <outlet property="scoreSet6P1" destination="AYq-61-HeS" id="hcI-vm-85M"/>
-                        <outlet property="scoreSet6P2" destination="12L-uo-jS9" id="eNe-qn-rOK"/>
+                        <outlet property="scoreSet5P1" destination="AYq-61-HeS" id="mC9-Dz-CkD"/>
+                        <outlet property="scoreSet5P2" destination="12L-uo-jS9" id="YVc-Kh-y2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZa-KH-RYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
