@@ -53,8 +53,16 @@ class GameViewController: UIViewController {
     
     var CounterGameP1: Int = 0
     var CounterGameP2: Int = 0
-    var counterSetP1: Int = 0
-    var counterSetP2: Int = 0
+    var counterSet1P1: Int = 0
+    var counterSet1P2: Int = 0
+    var counterSet2P1: Int = 0
+    var counterSet2P2: Int = 0
+    var counterSet3P1: Int = 0
+    var counterSet3P2: Int = 0
+    var counterSet4P1: Int = 0
+    var counterSet4P2: Int = 0
+    var counterSet5P1: Int = 0
+    var counterSet5P2: Int = 0
     var counterCurrentScoreP1: Int = 0
     var counterCurrentScoreP2: Int = 0
     var wonSetP1: Int = 0
@@ -62,49 +70,7 @@ class GameViewController: UIViewController {
     
     //MARK: - HELPERS
     
-    func isSet1Finished() -> Bool {
-        if scoreSet1P1.text == "6" || scoreSet1P2.text == "6" {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
-    func isSet2Finished() -> Bool {
-        if scoreSet2P1.text == "6" || scoreSet2P2.text == "6" {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
-    func isSet3Finished() -> Bool {
-        if scoreSet3P1.text == "6" || scoreSet3P2.text == "6" {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
-    func isSet4Finished() -> Bool {
-        if scoreSet4P1.text == "6" || scoreSet4P2.text == "6" {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-  
-    func incrementSetScoreP1() {
-        counterSetP1 = counterSetP1 + 1
-    }
-    
-    func incrementSetScoreP2() {
-        counterSetP2 = counterSetP2 + 1
-    }
+ 
     
     
     @IBAction func player1ScoreButtonPressed(_ sender: UIButton) {
@@ -128,11 +94,37 @@ class GameViewController: UIViewController {
             currentScoreP1.text = "0"
             currentScoreP2.text = "0"
             
-            if counterSetP1 != 6 && counterSetP2 != 6 {
-                incrementSetScoreP1()
-                print("P1 \(counterSetP1)")
-                scoreSet1P1.text = String(counterSetP1)
+            if counterSet1P1 != 6 && counterSet1P2 != 6 {
+                counterSet1P1 += 1
+                print("P1 \(counterSet1P1)")
+                scoreSet1P1.text = String(counterSet1P1)
             }
+            
+            if (counterSet1P1 == 6 || counterSet1P2 == 6) && (counterSet2P1 != 6 && counterSet2P2 != 6) {
+                counterSet2P1 += 1
+                print("P1 \(counterSet2P1)")
+                scoreSet2P1.text = String(counterSet2P1)
+            }
+            
+            if (counterSet2P1 == 6 || counterSet2P2 == 6) && (counterSet3P1 != 6 && counterSet3P2 != 6) {
+                counterSet3P1 += 1
+                print("P1 \(counterSet3P1)")
+                scoreSet3P1.text = String(counterSet3P1)
+            }
+            
+            if (counterSet3P1 == 6 || counterSet3P2 == 6) && (counterSet4P1 != 6 && counterSet4P2 != 6) {
+                counterSet4P1 += 1
+                print("P1 \(counterSet4P1)")
+                scoreSet4P1.text = String(counterSet4P1)
+            }
+            
+            if (counterSet4P1 == 6 || counterSet4P2 == 6) && (counterSet5P1 != 6 && counterSet5P2 != 6) {
+                counterSet5P1 += 1
+                print("P1 \(counterSet5P1)")
+                scoreSet5P1.text = String(counterSet5P1)
+            }
+            
+            
         }
     }
     
@@ -151,25 +143,44 @@ class GameViewController: UIViewController {
         if (CounterGameP2 == 3) {
             currentScoreP2.text = "40"
         }
-//        if (CounterGameP2 == 4) {
-//            incrementSetScoreP2()
-//            print("P2 \(counterSetP2)")
-//            scoreSet1P2.text = String(counterSetP2)
-//            CounterGameP2 = 0
-//            currentScoreP2.text = "0"
-//            currentScoreP1.text = "0"
-//        }
         
         if (CounterGameP2 == 4) {
             CounterGameP2 = 0
             currentScoreP1.text = "0"
             currentScoreP2.text = "0"
             
-            if counterSetP1 != 6 && counterSetP2 != 6 {
-                incrementSetScoreP2()
-                print("P2 \(counterSetP2)")
-                scoreSet1P2.text = String(counterSetP2)
+            if counterSet1P1 != 6 && counterSet1P2 != 6 {
+                counterSet1P2 += 1
+                print("P2 \(counterSet1P2)")
+                scoreSet1P2.text = String(counterSet1P2)
             }
+            
+            if (counterSet1P1 == 6 || counterSet1P2 == 6) && (counterSet2P1 != 6 && counterSet2P2 != 6) {
+                counterSet2P2 += 1
+                print("P2 \(counterSet2P2)")
+                scoreSet2P2.text = String(counterSet2P2)
+            }
+            
+            if (counterSet2P1 == 6 || counterSet2P2 == 6) && (counterSet3P1 != 6 && counterSet3P2 != 6) {
+                counterSet3P2 += 1
+                print("P2 \(counterSet2P2)")
+                scoreSet3P2.text = String(counterSet3P2)
+            }
+            
+            if (counterSet3P1 == 6 || counterSet3P2 == 6) && (counterSet4P1 != 6 && counterSet4P2 != 6) {
+                counterSet4P2 += 1
+                print("P2 \(counterSet2P2)")
+                scoreSet4P2.text = String(counterSet4P2)
+            }
+            
+            if (counterSet4P1 == 6 || counterSet4P2 == 6) && (counterSet5P1 != 6 && counterSet5P2 != 6) {
+                counterSet5P2 += 1
+                print("P2 \(counterSet5P2)")
+                scoreSet5P2.text = String(counterSet5P2)
+            }
+        
+            
+            
                
         }
         
