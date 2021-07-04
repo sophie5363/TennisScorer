@@ -62,22 +62,42 @@ class GameViewController: UIViewController {
     
     //MARK: - HELPERS
     
-//    func plusFifteenPointP1() {
-//        counterSetP1 += 1
-//
-//        if (counterSetP1 == 1) {
-//            displayForP1(score: 15);
-//        }
-//        if (counterSetP1 == 2) {
-//            displayForP1(score: 30);
-//        }
-//        if (counterSetP1 == 3) {
-//            displayForP1(score: 40);
-//        }
-//    }
-
-
+    func isSet1Finished() -> Bool {
+        if scoreSet1P1.text == "6" || scoreSet1P2.text == "6" {
+            return true
+        }
+        else {
+            return false
+        }
+    }
     
+    func isSet2Finished() -> Bool {
+        if scoreSet2P1.text == "6" || scoreSet2P2.text == "6" {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func isSet3Finished() -> Bool {
+        if scoreSet3P1.text == "6" || scoreSet3P2.text == "6" {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func isSet4Finished() -> Bool {
+        if scoreSet4P1.text == "6" || scoreSet4P2.text == "6" {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+  
     func incrementSetScoreP1() {
         counterSetP1 = counterSetP1 + 1
     }
@@ -104,20 +124,18 @@ class GameViewController: UIViewController {
         }
         
         if (CounterGameP1 == 4) {
-            incrementSetScoreP1()
-            print("P1 \(counterSetP1)")
-            scoreSet1P1.text = String(counterSetP1)
             CounterGameP1 = 0
             currentScoreP1.text = "0"
             currentScoreP2.text = "0"
+            
+            if counterSetP1 != 6 && counterSetP2 != 6 {
+                incrementSetScoreP1()
+                print("P1 \(counterSetP1)")
+                scoreSet1P1.text = String(counterSetP1)
+            }
         }
-        
-
     }
     
-
-    
-
     @IBAction func player2BtnPressed(_ sender: Any) {
         CounterGameP2 += 1
         
@@ -133,14 +151,28 @@ class GameViewController: UIViewController {
         if (CounterGameP2 == 3) {
             currentScoreP2.text = "40"
         }
+//        if (CounterGameP2 == 4) {
+//            incrementSetScoreP2()
+//            print("P2 \(counterSetP2)")
+//            scoreSet1P2.text = String(counterSetP2)
+//            CounterGameP2 = 0
+//            currentScoreP2.text = "0"
+//            currentScoreP1.text = "0"
+//        }
+        
         if (CounterGameP2 == 4) {
-            incrementSetScoreP2()
-            print("P2 \(counterSetP2)")
-            scoreSet1P2.text = String(counterSetP2)
             CounterGameP2 = 0
-            currentScoreP2.text = "0"
             currentScoreP1.text = "0"
+            currentScoreP2.text = "0"
+            
+            if counterSetP1 != 6 && counterSetP2 != 6 {
+                incrementSetScoreP2()
+                print("P2 \(counterSetP2)")
+                scoreSet1P2.text = String(counterSetP2)
+            }
+               
         }
+        
 
     }
     
