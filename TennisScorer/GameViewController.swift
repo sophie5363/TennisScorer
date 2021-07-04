@@ -66,56 +66,54 @@ class GameViewController: UIViewController {
     
     //MARK: - HELPERS
     
-    // TODO : gérer best of 3 et best of 5
-    
     // Pour gagner, un joueur doit avoir gagné 2 sets
-//    func whoWonBestOf3() {
-//        if counterSet1P1 == 6 {
-//            wonSetP1 += 1
-//        }
-//
-//        if counterSet2P1 == 6 {
-//            wonSetP1 += 1
-//        }
-//
-//        if counterSet3P1 == 6 {
-//            wonSetP1 += 1
-//        }
-//
-//        if counterSet1P2 == 6 {
-//            wonSetP2 += 1
-//        }
-//
-//        if counterSet2P2 == 6 {
-//            wonSetP2 += 1
-//        }
-//
-//        if counterSet3P2 == 6 {
-//            wonSetP2 += 1
-//        }
-//
-//        if wonSetP1 == 2 {
-//            // alert
-//            let alert = UIAlertController(title: "Match terminé",
-//                                          message: "Le vainqueur est le joueur 1",
-//                                          preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//            self.present(alert, animated: true)
-//        }
-//
-//        if wonSetP2 == 2 {
-//            // alert
-//            let alert = UIAlertController(title: "Match terminé",
-//                                          message: "Le vainqueur est le joueur 2",
-//                                          preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//            self.present(alert, animated: true)
-//
-//            btnPlayer1.isHidden = true
-//            btnPlayer2.isHidden = true
-//
-//        }
-//    }
+    func whoWonBestOf3() {
+        var player1ScoresArray = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
+        
+        var player2ScoresArray = [scoreSet1P2.text, scoreSet2P2.text, scoreSet3P2.text, scoreSet4P2.text, scoreSet5P2.text]
+        
+
+        var nbSetWonP1 = 0
+        player1ScoresArray.forEach {
+            x in if x == "6" {
+                nbSetWonP1 += 1
+            }
+        print("nb de sets gagnés par 1st player \(nbSetWonP1)")
+        }
+        
+        var nbSetWonP2 = 0
+        player2ScoresArray.forEach {
+            x in if x == "6" {
+                nbSetWonP2 += 1
+            }
+        print("nb de sets gagnés par 1st player \(nbSetWonP2)")
+        }
+    
+
+        if nbSetWonP1 == 2 {
+            // alert
+            let alert = UIAlertController(title: "Match terminé",
+                                          message: "Le vainqueur est le joueur 1",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            btnPlayer1.isHidden = true
+            btnPlayer2.isHidden = true
+        }
+        
+        if nbSetWonP2 == 2 {
+            // alert
+            let alert = UIAlertController(title: "Match terminé",
+                                          message: "Le vainqueur est le joueur 2",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            btnPlayer1.isHidden = true
+            btnPlayer2.isHidden = true
+        }
+}
     
     // Pour gagner un joueur doit avoir gagné 3 sets
     func whoWonBestOf5() {
@@ -140,48 +138,6 @@ class GameViewController: UIViewController {
         print("nb de sets gagnés par 1st player \(nbSetWonP2)")
         }
     
-//
-//        if scoreSet1P1.text == "6" {
-//            wonSetP1 += 1
-//        }
-//
-//        if scoreSet2P1.text == "6" {
-//            wonSetP1 += 1
-//        }
-//
-//        if scoreSet3P1.text == "6" {
-//            wonSetP1 += 1
-//        }
-//
-//        if scoreSet4P1.text == "6" {
-//            wonSetP1 += 1
-//        }
-//
-//        if scoreSet5P1.text == "6" {
-//            wonSetP1 += 1
-//        }
-//
-//
-//        if scoreSet1P1.text == "6" {
-//            wonSetP2 += 1
-//        }
-//
-//        if scoreSet2P1.text == "6" {
-//            wonSetP2 += 1
-//        }
-//
-//        if scoreSet3P1.text == "6" {
-//            wonSetP2 += 1
-//        }
-//
-//        if scoreSet4P1.text == "6" {
-//            wonSetP2 += 1
-//        }
-//
-//        if scoreSet5P1.text == "6" {
-//            wonSetP2 += 1
-//        }
-        
 
         if nbSetWonP1 == 3 {
             // alert
