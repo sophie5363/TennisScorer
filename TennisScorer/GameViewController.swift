@@ -9,6 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    //TODO: implémenter protocole equatable permet de définir les méthodes de comparaison
     
 //    MARK: - IBOUTLETS
 
@@ -190,16 +191,16 @@ class GameViewController: UIViewController {
         CounterGameP1 += 1
         
         if (CounterGameP1 == 0) {
-            currentScoreP1.text = "0"
+            currentScoreP1.text = GameScore.love.rawValue
         }
         if (CounterGameP1 == 1) {
-            currentScoreP1.text = "15"
+            currentScoreP1.text = GameScore.fifteen.rawValue
         }
         if (CounterGameP1 == 2) {
-            currentScoreP1.text = "30"
+            currentScoreP1.text = GameScore.thirty.rawValue
         }
         if (CounterGameP1 == 3) {
-            currentScoreP1.text = "40"
+            currentScoreP1.text = GameScore.forty.rawValue
         }
         
         if (CounterGameP1 == 4) {
