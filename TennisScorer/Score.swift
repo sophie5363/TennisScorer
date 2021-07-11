@@ -12,6 +12,11 @@ enum MatchType: Int {
     case bestOf5 = 3
 }
 
+enum TennisScorerError: Error {
+    case unfinishedMatchError
+    case finishedMatchError
+}
+
 enum GameScore: String, Equatable {
     case love = "00"
     case fifteen = "15"

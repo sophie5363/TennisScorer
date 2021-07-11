@@ -39,10 +39,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var scoreSet5P1: UILabel!
     
     @IBOutlet weak var scoreSet5P2: UILabel!
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
     }
     
@@ -65,6 +66,7 @@ class GameViewController: UIViewController {
     
     var tennisScorer: TennisScorer?
     
+
     
     
     //MARK: - HELPERS
@@ -135,11 +137,7 @@ class GameViewController: UIViewController {
         }
         
     }
-    
-    //MARK: - VALUES LABELS
-    //    var player1ScoresArray = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
-    //
-    //    var player2ScoresArray = [scoreSet1P2.text, scoreSet2P2.text, scoreSet3P2.text, scoreSet4P2.text, scoreSet5P2.text]
+
     
     //MARK: - IBACTIONS
     

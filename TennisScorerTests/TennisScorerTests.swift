@@ -9,25 +9,67 @@ import XCTest
 @testable import TennisScorer
 
 class TennisScorerTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var scorer : TennisScorer!
+    
+    func setup(){
+        scorer = TennisScorer(matchType: MatchType.bestOf3, tieBreakInLastSet: true)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        func testSameScoreInSetsUsingGame() {
+            var score1 = Score(sets: [(0,0)], currentGame: (.love, .love))
+            var score2 = Score(sets: [(0,0)], currentGame: (.love, .love))
+            XCTAssertEqual(score1, score2)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            let score3 = Score(sets: [(0,0)], currentGame: (.fifteen, .love))
+            XCTAssertEqual(score1, score3)
+            
+            score1 = Score(sets: [(4,6), (6,0)], currentGame: (.fifteen, .fifteen))
+            score2 = Score(sets: [(4,6), (6,0)], currentGame: (.fifteen, .fifteen))
+            XCTAssertEqual(score1, score2)
+            
+            score1 = Score(sets: [(4,6), (6,0)], currentGame: (.fifteen, .forty))
+            score2 = Score(sets: [(3,6), (6,0)], currentGame: (.fifteen, .love))
+            XCTAssertEqual(score1, score2)
         }
+    
+    func test_initialScore() {
+        XCTAssertNotEqual(scorer?.score, Score(sets: [(0,0)], currentGame: (.love, .love)))
     }
 
+    func test_error_match_is_not_over(){
+        XCTAssertNoThrow(try scorer?.winner())
+    }
+    
+
+    
+    
+    override func tearDown() {
+        scorer = nil
+        super.tearDown()
+    }
+    
+    
+
+//    func XCTAssert(() -> Bool, () -> String, file: StaticString, line: UInt)
+    
+//    func XCTAssertFalse(() -> Bool, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertNil(() -> Any?, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertNotNil(() -> Any?, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertEqual<T>(() -> T, () -> T, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertNotEqual<T>(() -> T, () -> T, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertGreaterThan<T>(() -> T, () -> T, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertLessThanOrEqual<T>(() -> T, () -> T, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertGreaterThanOrEqual<T>(() -> T, () -> T, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertLessThan<T>(() -> T, () -> T, () -> String, file: StaticString, line: UInt)
+//
+//    func XCTAssertNoThrow<T>(() -> T, () -> String, file: StaticString, line: UInt)
 }
