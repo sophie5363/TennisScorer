@@ -11,6 +11,18 @@ var sharedTennisScorer : TennisScorer?
 
 class TennisScorer : TestableTennisScorer {
     
+    //            let alert = UIAlertController(title: "Match terminé",
+    //                                          message: "Le vainqueur est le joueur 1",
+    //                                          preferredStyle: .alert)
+    //            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    //            self.present(alert, animated: true)
+    //
+    //            btnPlayer1.isHidden = true
+    //            btnPlayer2.isHidden = true
+    
+    
+    
+    
     //MARK: - PROPRIETES
 
     var score: Score
@@ -18,6 +30,12 @@ class TennisScorer : TestableTennisScorer {
     var tieBreak: Bool
     let matchType: MatchType
     var currentSet: Int
+    
+    var updateScoreMaybe: Bool = false
+    
+    var matchResult: [Bool] = [false, false, false, false, false]
+    
+    var updateLabel : Bool = false
     
     
     required init(matchType: MatchType, tieBreakInLastSet: Bool) {
@@ -28,139 +46,234 @@ class TennisScorer : TestableTennisScorer {
         isOver = false
     }
     
-    private func updateCurrentSet(){
-        currentSet += 1
-        if(currentSet >= matchType.rawValue){
-            isOver = true
-        }
-    }
 
     
     func updateWithPointsByPlayer(_ player: Int) throws {
-        var isSet = false
-        if(player == 0 && isOver == false){
-            score.currentGame.0 = incrementPlayerPoint(score.currentGame.0, &score.currentGame.1, &isSet)
-            if(isSet){
-                score.sets[currentSet].0 += 1
-                if(score.sets[currentSet].1 < 5 && score.sets[currentSet].0 == 6){
-                    updateCurrentSet()
+        var i : Int = 0
+        
+        for n in matchResult {
+            if n == false {
+                incrementPoint(numSet: i, playerNumber: player)
+                updateLabel = true
+                break
+            }
+            i += 1
+        }
+    }
+    
+   
+    func winner() throws -> Int {
+        if sharedTennisScorer!.updateScoreMaybe == true {
+            sharedTennisScorer!.updateScoreMaybe = false
+            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
+                return sharedTennisScorer!.whoWonBestOf3()
+            }
+            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
+                return sharedTennisScorer!.whoWonBestOf5()
+            }
+        }
+        return -1
+}
+    
+    
+    func incrementPoint(numSet: Int, playerNumber: Int) {
+        
+        print("joueur 1 \(sharedTennisScorer!.score.sets[numSet].0)")
+        print("joueur 2 \(sharedTennisScorer!.score.sets[numSet].1)")
+        
+        if playerNumber == 1 {
+            sharedTennisScorer!.score.sets[numSet].0 += 1
+            if(sharedTennisScorer!.score.sets[numSet].1 < 5 && sharedTennisScorer!.score.sets[numSet].0 == 6){
+               
+                matchResult[numSet] = true
+                updateScoreMaybe = true
+            }
+            else{
+                if(sharedTennisScorer!.score.sets[numSet].1 == 5 && sharedTennisScorer!.score.sets[numSet].0 == 7){
+                    
+                    matchResult[numSet] = true
+                    updateScoreMaybe = true
                 }
                 else{
-                    if(score.sets[currentSet].1 == 5 && score.sets[currentSet].0 == 7){
-                        updateCurrentSet()
+                    if(!sharedTennisScorer!.tieBreak){
+                        if(sharedTennisScorer!.score.sets[numSet].1 == 6 && sharedTennisScorer!.score.sets[numSet].0 == 6){
+                           
+                            matchResult[numSet] = true
+                            updateScoreMaybe = true
+                        }
                     }
                     else{
-                        if(!tieBreak){
-                            if(score.sets[currentSet].1 == 6 && score.sets[currentSet].0 == 6){
-                                updateCurrentSet()
-                            }
-                        }
-                        else{
-                            if(score.sets[currentSet].1 == 6 && score.sets[currentSet].0 == 7){
-                                updateCurrentSet()
-                            }
+                        if(sharedTennisScorer!.score.sets[numSet].1 == 6 && sharedTennisScorer!.score.sets[numSet].0 == 7){
+                            
+                            matchResult[numSet] = true
+                            updateScoreMaybe = true
                         }
                     }
                 }
             }
-        }else{
-            if(player == 1 && isOver == false){
-                score.currentGame.1 = incrementPlayerPoint(score.currentGame.1, &score.currentGame.0, &isSet)
-                if(isSet){
-                    score.sets[currentSet].1 += 1
-                    if(score.sets[currentSet].0 < 5 && score.sets[currentSet].1 == 6){
-                        updateCurrentSet()
+        }
+        
+        if playerNumber == 2 {
+            sharedTennisScorer!.score.sets[numSet].1 += 1
+            if(sharedTennisScorer!.score.sets[numSet].0 < 5 && sharedTennisScorer!.score.sets[numSet].1 == 6){
+                
+                matchResult[numSet] = true
+                updateScoreMaybe = true
+               
+            }
+            else{
+                if(sharedTennisScorer!.score.sets[numSet].0 == 5 && sharedTennisScorer!.score.sets[numSet].1 == 7){
+                    
+                    matchResult[numSet] = true
+                    updateScoreMaybe = true
+                }
+                else{
+                    if(!sharedTennisScorer!.tieBreak){
+                        if(sharedTennisScorer!.score.sets[numSet].0 == 6 && sharedTennisScorer!.score.sets[numSet].1 == 6){
+                            
+                            matchResult[numSet] = true
+                            updateScoreMaybe = true
+                        }
                     }
                     else{
-                        if(score.sets[currentSet].0 == 5 && score.sets[currentSet].1 == 7){
-                            updateCurrentSet()
-                        }
-                        else{
-                            if(!tieBreak){
-                                if(score.sets[currentSet].0 == 6 && score.sets[currentSet].1 == 6){
-                                    updateCurrentSet()
-                                }
-                            }
-                            else{
-                                if(score.sets[currentSet].0 == 6 && score.sets[currentSet].1 == 7){
-                                    updateCurrentSet()
-                                }
-                            }
+                        if(sharedTennisScorer!.score.sets[numSet].0 == 6 && sharedTennisScorer!.score.sets[numSet].1 == 7){
+                            
+                            matchResult[numSet] = true
+                            updateScoreMaybe = true
                         }
                     }
                 }
-            }else{
-                print("Le joueur choisit n'est pas disponible")
             }
         }
-    }
-    
-    private func incrementPlayerPoint(_ gameScorePlayer1 : GameScore, _ gameScorePlayer2 : inout GameScore, _ isSet : inout Bool)->GameScore{
-         
-         var newScore = gameScorePlayer1
-         
-         isSet = false
-         
-         if(gameScorePlayer1 == GameScore.love){
-             newScore = GameScore.fifteen
-         }
-         if(gameScorePlayer1 == GameScore.fifteen){
-             newScore = GameScore.thirty
-         }
-         if(gameScorePlayer1 == GameScore.thirty){
-             newScore = GameScore.forty
-         }
-         if(gameScorePlayer1 == GameScore.forty){
-             if ( gameScorePlayer2 == GameScore.advantage){
-                 gameScorePlayer2 = GameScore.forty
-             }
-             else{
-                 if(gameScorePlayer2 == GameScore.forty){
-                     newScore = GameScore.advantage
-                 }else{
-                     newScore = GameScore.love
-                     gameScorePlayer2 = GameScore.love
-                     isSet = true
-                 }
-             }
-         }
-         if(gameScorePlayer1 == GameScore.advantage){
-             newScore = GameScore.love
-             gameScorePlayer2 = GameScore.love
-             isSet = true
-         }
-         return newScore
-     }
-    
-    
-    func winner() throws -> Int {
-        if(isOver){
-            var cptVictoryPlayer1 = 0
-            var cptVictoryPlayer2 = 0
-            for set in score.sets{
-                if(set.0>set.1){
-                    cptVictoryPlayer1 += 1
-                }else{
-                    if(set.0<set.1){
-                        cptVictoryPlayer2 += 1
-                    }
-                }
-            }
-            if(cptVictoryPlayer1 > cptVictoryPlayer2){
-                return 0
-            }
-            if(cptVictoryPlayer1 < cptVictoryPlayer2){
-                return 1
-            }
-            if(cptVictoryPlayer1 == cptVictoryPlayer2){
-                return 2
-            }
-            
-            return -1
-            
-        }else{
-            return -1
-        }
-    }
 
+    }
+    
+    // Pour gagner, un joueur doit avoir gagné 2 sets
+    func whoWonBestOf3() -> Int{
+        
+        var nbSetWonP1 = 0
+        var nbSetWonP2 = 0
+
+        for i in 0..<score.sets.count {
+            if score.sets[i].0 == 7 {
+                nbSetWonP1 += 1
+            }
+            
+            
+            if score.sets[i].0 == 6 {
+                if score.sets[i].1 == 6 {
+                    //
+                }
+                else {
+                    if score.sets[i].1 == 7 {
+                        
+                    }
+                    else {
+                        nbSetWonP1 += 1
+                    }
+                }
+            }
+            
+            if score.sets[i].1 == 7 {
+                nbSetWonP2 += 1
+            }
+            
+            if score.sets[i].1 == 6 {
+                if score.sets[i].0 == 6 {
+                    //
+                }
+                else {
+                    if score.sets[i].0 == 7 {
+                       
+                    }
+                    else {
+                        nbSetWonP2 += 1
+                    }
+                    
+                }
+            }
+        }
+    
+
+
+        if nbSetWonP1 == 2 {
+            // alert
+            sharedTennisScorer!.isOver = true
+            return 1
+
+        }
+        
+        if nbSetWonP2 == 2 {
+            
+            sharedTennisScorer!.isOver = true
+            return 2
+        }
+        
+        return -1
+        
+}
+    
+    
+    // Pour gagner un joueur doit avoir gagné 3 sets
+    func whoWonBestOf5() -> Int {
+       
+        var nbSetWonP1 = 0
+        var nbSetWonP2 = 0
+
+        for i in 0..<score.sets.count {
+            if score.sets[i].0 == 7 {
+                nbSetWonP1 += 1
+            }
+            
+            
+            if score.sets[i].0 == 6 {
+                if score.sets[i].1 == 6 {
+                    //
+                }
+                else {
+                    if score.sets[i].1 == 7 {
+                        
+                    }
+                    else {
+                        nbSetWonP1 += 1
+                    }
+                }
+            }
+            
+            if score.sets[i].1 == 7 {
+                nbSetWonP2 += 1
+            }
+            
+            if score.sets[i].1 == 6 {
+                if score.sets[i].0 == 6 {
+                    //
+                }
+                else {
+                    if score.sets[i].0 == 7 {
+                       
+                    }
+                    else {
+                        nbSetWonP2 += 1
+                    }
+                    
+                }
+            }
+        }
+    
+
+        if nbSetWonP1 == 3 {
+            // alert
+            sharedTennisScorer!.isOver = true
+            return 1
+        }
+        
+        if nbSetWonP2 == 3 {
+            // alert
+            
+            sharedTennisScorer!.isOver = true
+            return 2
+        }
+        return -1
+    }
+    
 }

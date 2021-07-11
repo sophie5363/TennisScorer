@@ -99,15 +99,7 @@ class GameViewController: UIViewController {
         var player2ScoresArray = [scoreSet1P2.text!, scoreSet2P2.text!, scoreSet3P2.text!, scoreSet4P2.text!, scoreSet5P2.text!]
         
         
-        if sharedTennisScorer!.updateScoreMaybe == true {
-            sharedTennisScorer!.updateScoreMaybe = false
-            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                sharedTennisScorer!.whoWonBestOf3(player1ScoresArray: player1ScoresArray, player2ScoresArray: player2ScoresArray)
-            }
-            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                sharedTennisScorer!.whoWonBestOf5(player1ScoresArray: player1ScoresArray, player2ScoresArray: player2ScoresArray)
-            }
-        }
+       
         
     }
 
