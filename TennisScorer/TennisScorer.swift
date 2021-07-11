@@ -7,7 +7,7 @@
 
 import Foundation
 
-var sharedTennisScorer : TestableTennisScorer?
+var sharedTennisScorer : TennisScorer?
 
 class TennisScorer : TestableTennisScorer {
     
@@ -34,10 +34,7 @@ class TennisScorer : TestableTennisScorer {
             isOver = true
         }
     }
-    
-    func getMatchType() -> Int {
-        return matchType.rawValue
-    }
+
     
     func updateWithPointsByPlayer(_ player: Int) throws {
         var isSet = false
