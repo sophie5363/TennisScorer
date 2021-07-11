@@ -65,17 +65,14 @@ class GameViewController: UIViewController {
     
     var tennisScorer: TennisScorer?
     
-    var matchResult: [Bool] = [false, false, false, false, false]
 
-
-    
     
     //MARK: - HELPERS
     
     var currentSet: Int = 0
     
     func updateLabels() {
-        
+                
         scoreSet1P1.text = String(sharedTennisScorer!.score.sets[0].0)
         
         scoreSet2P1.text = String(sharedTennisScorer!.score.sets[1].0)
@@ -97,250 +94,27 @@ class GameViewController: UIViewController {
         
         scoreSet5P2.text = String(sharedTennisScorer!.score.sets[4].1)
         
+        var player1ScoresArray = [scoreSet1P1.text!, scoreSet2P1.text!, scoreSet3P1.text!, scoreSet4P1.text!, scoreSet5P1.text!]
+        
+        var player2ScoresArray = [scoreSet1P2.text!, scoreSet2P2.text!, scoreSet3P2.text!, scoreSet4P2.text!, scoreSet5P2.text!]
+        
+        
+        if sharedTennisScorer!.updateScoreMaybe == true {
+            sharedTennisScorer!.updateScoreMaybe = false
+            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
+                sharedTennisScorer!.whoWonBestOf3(player1ScoresArray: player1ScoresArray, player2ScoresArray: player2ScoresArray)
+            }
+            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
+                sharedTennisScorer!.whoWonBestOf5(player1ScoresArray: player1ScoresArray, player2ScoresArray: player2ScoresArray)
+            }
+        }
+        
     }
-    
-    
-    func incrementPoint(numSet: Int, playerNumber: Int) {
-        
-        print("joueur 1 \(sharedTennisScorer!.score.sets[numSet].0)")
-        print("joueur 2 \(sharedTennisScorer!.score.sets[numSet].1)")
-        
-        if playerNumber == 1 {
-            sharedTennisScorer!.score.sets[numSet].0 += 1
-            if(sharedTennisScorer!.score.sets[numSet].1 < 5 && sharedTennisScorer!.score.sets[numSet].0 == 6){
-                if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                    whoWonBestOf3()
-                }
-                if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                    whoWonBestOf5()
-                }
-                matchResult[numSet] = true
-               
-            }
-            else{
-                if(sharedTennisScorer!.score.sets[numSet].1 == 5 && sharedTennisScorer!.score.sets[numSet].0 == 7){
-                    if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                        whoWonBestOf3()
-                    }
-                    if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                        whoWonBestOf5()
-                    }
-                    matchResult[numSet] = true
-                }
-                else{
-                    if(!sharedTennisScorer!.tieBreak){
-                        if(sharedTennisScorer!.score.sets[numSet].1 == 6 && sharedTennisScorer!.score.sets[numSet].0 == 6){
-                            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                                whoWonBestOf3()
-                            }
-                            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                                whoWonBestOf5()
-                            }
-                            matchResult[numSet] = true
-                        }
-                    }
-                    else{
-                        if(sharedTennisScorer!.score.sets[numSet].1 == 6 && sharedTennisScorer!.score.sets[numSet].0 == 7){
-                            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                                whoWonBestOf3()
-                            }
-                            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                                whoWonBestOf5()
-                            }
-                            matchResult[numSet] = true
-                        }
-                    }
-                }
-            }
-        }
-        
-        if playerNumber == 2 {
-            sharedTennisScorer!.score.sets[numSet].1 += 1
-            if(sharedTennisScorer!.score.sets[numSet].0 < 5 && sharedTennisScorer!.score.sets[numSet].1 == 6){
-                if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                    whoWonBestOf3()
-                }
-                if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                    whoWonBestOf5()
-                }
-                matchResult[numSet] = true
-               
-            }
-            else{
-                if(sharedTennisScorer!.score.sets[numSet].0 == 5 && sharedTennisScorer!.score.sets[numSet].1 == 7){
-                    if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                        whoWonBestOf3()
-                    }
-                    if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                        whoWonBestOf5()
-                    }
-                    matchResult[numSet] = true
-                }
-                else{
-                    if(!sharedTennisScorer!.tieBreak){
-                        if(sharedTennisScorer!.score.sets[numSet].0 == 6 && sharedTennisScorer!.score.sets[numSet].1 == 6){
-                            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                                whoWonBestOf3()
-                            }
-                            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                                whoWonBestOf5()
-                            }
-                            matchResult[numSet] = true
-                        }
-                    }
-                    else{
-                        if(sharedTennisScorer!.score.sets[numSet].0 == 6 && sharedTennisScorer!.score.sets[numSet].1 == 7){
-                            if sharedTennisScorer!.matchType == MatchType.bestOf3  {
-                                whoWonBestOf3()
-                            }
-                            if sharedTennisScorer!.matchType == MatchType.bestOf5  {
-                                whoWonBestOf5()
-                            }
-                            matchResult[numSet] = true
-                        }
-                    }
-                }
-            }
-        }
-        
-        
-        
- 
-    }
-    
-    
-    // Pour gagner, un joueur doit avoir gagné 2 sets
-    func whoWonBestOf3() {
-        var player1ScoresArray = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
-        
-        var player2ScoresArray = [scoreSet1P2.text, scoreSet2P2.text, scoreSet3P2.text, scoreSet4P2.text, scoreSet5P2.text]
-        
-        //        for n in matchResult {
-        //            if n == false {
-        //                incrementPoint(numSet: i, playerNumber: 1)
-        //                updateLabels()
-        //                break
-        //            }
-        //            i += 1
-        //        }
-        
-        //        for index in 1..<nameArrayLength {
-        //        }
-        
-        var nbSetWonP1 = 0
-        var nbSetWonP2 = 0
 
-        for i in 0..<player1ScoresArray.count {
-            if player1ScoresArray[i] == "6" {
-                if player2ScoresArray[i] == "6" || player2ScoresArray[i] == "7" {
-                    //
-                }
-                else {
-                    nbSetWonP1 += 1
-                }
-            }
-            
-            if player2ScoresArray[i] == "6" {
-                if player1ScoresArray[i] == "6" || player1ScoresArray[i] == "7" {
-                    //
-                }
-                else {
-                    nbSetWonP2 += 1
-                }
-            }
-        }
-
-        player1ScoresArray.forEach {
-            x in if x == "6" {
-                nbSetWonP1 += 1
-            }
-        print("nb de sets gagnés par 1st player \(nbSetWonP1)")
-        }
-        
-        
-        player2ScoresArray.forEach {
-            x in if x == "6" {
-                nbSetWonP2 += 1
-            }
-        print("nb de sets gagnés par 1st player \(nbSetWonP2)")
-        }
-    
-
-        if nbSetWonP1 == 2 {
-            // alert
-            let alert = UIAlertController(title: "Match terminé",
-                                          message: "Le vainqueur est le joueur 1",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            
-            btnPlayer1.isHidden = true
-            btnPlayer2.isHidden = true
-        }
-        
-        if nbSetWonP2 == 2 {
-            
-            // alert
-            let alert = UIAlertController(title: "Match terminé",
-                                          message: "Le vainqueur est le joueur 2",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            
-            btnPlayer1.isHidden = true
-            btnPlayer2.isHidden = true
-        }
-}
-    
-    // Pour gagner un joueur doit avoir gagné 3 sets
-    func whoWonBestOf5() {
-        var player1ScoresArray = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
-        
-        var player2ScoresArray = [scoreSet1P2.text, scoreSet2P2.text, scoreSet3P2.text, scoreSet4P2.text, scoreSet5P2.text]
-        
-
-        var nbSetWonP1 = 0
-        player1ScoresArray.forEach {
-            x in if x == "6" {
-                nbSetWonP1 += 1
-            }
-        print("nb de sets gagnés par 1st player \(nbSetWonP1)")
-        }
-        
-        var nbSetWonP2 = 0
-        player2ScoresArray.forEach {
-            x in if x == "6" {
-                nbSetWonP2 += 1
-            }
-        print("nb de sets gagnés par 1st player \(nbSetWonP2)")
-        }
-    
-
-        if nbSetWonP1 == 3 {
-            // alert
-            let alert = UIAlertController(title: "Match terminé",
-                                          message: "Le vainqueur est le joueur 1",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            
-            btnPlayer1.isHidden = true
-            btnPlayer2.isHidden = true
-        }
-        
-        if nbSetWonP2 == 3 {
-            // alert
-            let alert = UIAlertController(title: "Match terminé",
-                                          message: "Le vainqueur est le joueur 2",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            
-            btnPlayer1.isHidden = true
-            btnPlayer2.isHidden = true
-        }
-  
-    }
+   //MARK: - VALUES LABELS
+//    var player1ScoresArray = [scoreSet1P1.text, scoreSet2P1.text, scoreSet3P1.text, scoreSet4P1.text, scoreSet5P1.text]
+//
+//    var player2ScoresArray = [scoreSet1P2.text, scoreSet2P2.text, scoreSet3P2.text, scoreSet4P2.text, scoreSet5P2.text]
     
     //MARK: - IBACTIONS
 
@@ -360,25 +134,21 @@ class GameViewController: UIViewController {
         if (CounterGameP1 == 3) {
             currentScoreP1.text = GameScore.forty.rawValue
         }
-        
 
-        
         if (CounterGameP1 == 4) {
             CounterGameP1 = 0
             currentScoreP1.text = GameScore.love.rawValue
             currentScoreP2.text = GameScore.love.rawValue
-            
-            var i : Int = 0
-            
-            for n in matchResult {
-                if n == false {
-                    incrementPoint(numSet: i, playerNumber: 1)
+
+            do {
+                try  sharedTennisScorer!.updateWithPointsByPlayer(1)
+                if sharedTennisScorer!.updateLabel == true {
                     updateLabels()
-                    break
                 }
-                i += 1
+            } catch  {
+                
             }
-            
+
         }
     }
 
@@ -403,18 +173,16 @@ class GameViewController: UIViewController {
             CounterGameP2 = 0
             currentScoreP1.text = GameScore.love.rawValue
             currentScoreP2.text = GameScore.love.rawValue
-            
-            
-            var i : Int = 0
-            
-            for n in matchResult {
-                if n == false {
-                    incrementPoint(numSet: i, playerNumber: 2)
+
+            do {
+                try  sharedTennisScorer!.updateWithPointsByPlayer(2)
+                if sharedTennisScorer!.updateLabel == true {
                     updateLabels()
-                    break
                 }
-                i += 1
+            } catch  {
+                
             }
+
                 
         }
     }
