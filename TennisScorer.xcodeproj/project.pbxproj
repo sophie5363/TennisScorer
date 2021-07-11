@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C02491F12699FE5D0014FF8B /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02491F02699FE5D0014FF8B /* Score.swift */; };
+		C050E7F9269B0FF800A1A982 /* TennisScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050E7F8269B0FF800A1A982 /* TennisScorer.swift */; };
 		C080B467268DAB3A003F3CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B466268DAB3A003F3CE0 /* AppDelegate.swift */; };
 		C080B469268DAB3A003F3CE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B468268DAB3A003F3CE0 /* SceneDelegate.swift */; };
 		C080B46B268DAB3A003F3CE0 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B46A268DAB3A003F3CE0 /* homeViewController.swift */; };
@@ -17,7 +18,6 @@
 		C080B476268DAB3A003F3CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C080B474268DAB3A003F3CE0 /* LaunchScreen.storyboard */; };
 		C080B481268DAB3A003F3CE0 /* TennisScorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B480268DAB3A003F3CE0 /* TennisScorerTests.swift */; };
 		C080B4A0268DB128003F3CE0 /* The_Led_Display_St.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */; };
-		C0D5420B2691A8DA00F78016 /* score.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5420A2691A8DA00F78016 /* score.swift */; };
 		C0D5420D2691AD5800F78016 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5420C2691AD5800F78016 /* GameViewController.swift */; };
 		C0D5420F26923B5300F78016 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5420E26923B5300F78016 /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		C02491F02699FE5D0014FF8B /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		C050E7F8269B0FF800A1A982 /* TennisScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisScorer.swift; sourceTree = "<group>"; };
 		C080B463268DAB3A003F3CE0 /* TennisScorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisScorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C080B466268DAB3A003F3CE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C080B468268DAB3A003F3CE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		C080B480268DAB3A003F3CE0 /* TennisScorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisScorerTests.swift; sourceTree = "<group>"; };
 		C080B482268DAB3A003F3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = The_Led_Display_St.ttf; sourceTree = "<group>"; };
-		C0D5420A2691A8DA00F78016 /* score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = score.swift; sourceTree = "<group>"; };
 		C0D5420C2691AD5800F78016 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C0D5420E26923B5300F78016 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +73,6 @@
 		C080B45A268DAB3A003F3CE0 = {
 			isa = PBXGroup;
 			children = (
-				C0D5420A2691A8DA00F78016 /* score.swift */,
 				C080B465268DAB3A003F3CE0 /* TennisScorer */,
 				C080B47F268DAB3A003F3CE0 /* TennisScorerTests */,
 				C080B464268DAB3A003F3CE0 /* Products */,
@@ -104,6 +103,7 @@
 				C0D5420C2691AD5800F78016 /* GameViewController.swift */,
 				C0D5420E26923B5300F78016 /* Utils.swift */,
 				C02491F02699FE5D0014FF8B /* Score.swift */,
+				C050E7F8269B0FF800A1A982 /* TennisScorer.swift */,
 			);
 			path = TennisScorer;
 			sourceTree = "<group>";
@@ -229,8 +229,8 @@
 				C0D5420D2691AD5800F78016 /* GameViewController.swift in Sources */,
 				C080B471268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld in Sources */,
 				C080B46B268DAB3A003F3CE0 /* homeViewController.swift in Sources */,
-				C0D5420B2691A8DA00F78016 /* score.swift in Sources */,
 				C080B467268DAB3A003F3CE0 /* AppDelegate.swift in Sources */,
+				C050E7F9269B0FF800A1A982 /* TennisScorer.swift in Sources */,
 				C080B469268DAB3A003F3CE0 /* SceneDelegate.swift in Sources */,
 				C02491F12699FE5D0014FF8B /* Score.swift in Sources */,
 				C0D5420F26923B5300F78016 /* Utils.swift in Sources */,

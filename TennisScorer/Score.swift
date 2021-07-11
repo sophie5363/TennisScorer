@@ -27,6 +27,7 @@ struct Score: Equatable {
     
     var sets: [(Int, Int)]
     var setsCounter: Int = 0
+    var currentGame: (GameScore, GameScore)
 }
 
 protocol TestableTennisScorer {

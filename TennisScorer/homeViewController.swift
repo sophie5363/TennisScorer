@@ -8,13 +8,7 @@
 import UIKit
 
 class homeViewController: UIViewController {
-    
-    enum MatchType: Int {
-        case bestOf3 = 2
-        case bestOf5 = 3
-    }
-    
-    var choiceMatchType: Int?
+
 
     @IBOutlet weak var tieBreakBtn: UISwitch!
     
@@ -23,19 +17,19 @@ class homeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
 
     @IBAction func matchTypePressed(_ sender: UISegmentedControl) {
         if(nbSetsGagnantsBtn.selectedSegmentIndex == 0)
         {
-            choiceMatchType = 2
+            sharedTennisScorer = TennisScorer(matchType: MatchType.bestOf3, tieBreakInLastSet: tieBreakBtn.isOn)
             
         }
         else if(nbSetsGagnantsBtn.selectedSegmentIndex == 1)
         {
-            choiceMatchType = 3
+            sharedTennisScorer = TennisScorer(matchType: MatchType.bestOf5, tieBreakInLastSet: tieBreakBtn.isOn)
         }
         
     }
