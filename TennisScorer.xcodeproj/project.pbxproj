@@ -13,13 +13,11 @@
 		C080B469268DAB3A003F3CE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B468268DAB3A003F3CE0 /* SceneDelegate.swift */; };
 		C080B46B268DAB3A003F3CE0 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B46A268DAB3A003F3CE0 /* homeViewController.swift */; };
 		C080B46E268DAB3A003F3CE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C080B46C268DAB3A003F3CE0 /* Main.storyboard */; };
-		C080B471268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C080B46F268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld */; };
 		C080B473268DAB3A003F3CE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C080B472268DAB3A003F3CE0 /* Assets.xcassets */; };
 		C080B476268DAB3A003F3CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C080B474268DAB3A003F3CE0 /* LaunchScreen.storyboard */; };
 		C080B481268DAB3A003F3CE0 /* TennisScorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C080B480268DAB3A003F3CE0 /* TennisScorerTests.swift */; };
 		C080B4A0268DB128003F3CE0 /* The_Led_Display_St.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */; };
 		C0D5420D2691AD5800F78016 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5420C2691AD5800F78016 /* GameViewController.swift */; };
-		C0D5420F26923B5300F78016 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5420E26923B5300F78016 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +38,6 @@
 		C080B468268DAB3A003F3CE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C080B46A268DAB3A003F3CE0 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		C080B46D268DAB3A003F3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C080B470268DAB3A003F3CE0 /* TennisScorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TennisScorer.xcdatamodel; sourceTree = "<group>"; };
 		C080B472268DAB3A003F3CE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C080B475268DAB3A003F3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C080B477268DAB3A003F3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,7 +46,6 @@
 		C080B482268DAB3A003F3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C080B49F268DB128003F3CE0 /* The_Led_Display_St.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = The_Led_Display_St.ttf; sourceTree = "<group>"; };
 		C0D5420C2691AD5800F78016 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		C0D5420E26923B5300F78016 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +66,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C050E7FA269B29E100A1A982 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C0D5420C2691AD5800F78016 /* GameViewController.swift */,
+				C080B46A268DAB3A003F3CE0 /* homeViewController.swift */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		C050E7FB269B29F400A1A982 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C02491F02699FE5D0014FF8B /* Score.swift */,
+				C050E7F8269B0FF800A1A982 /* TennisScorer.swift */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		C050E7FC269B2A3100A1A982 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C080B46C268DAB3A003F3CE0 /* Main.storyboard */,
+				C080B474268DAB3A003F3CE0 /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		C080B45A268DAB3A003F3CE0 = {
 			isa = PBXGroup;
 			children = (
@@ -91,19 +114,14 @@
 		C080B465268DAB3A003F3CE0 /* TennisScorer */ = {
 			isa = PBXGroup;
 			children = (
+				C050E7FC269B2A3100A1A982 /* UI */,
+				C050E7FB269B29F400A1A982 /* Class */,
+				C050E7FA269B29E100A1A982 /* VC */,
 				C080B466268DAB3A003F3CE0 /* AppDelegate.swift */,
 				C080B468268DAB3A003F3CE0 /* SceneDelegate.swift */,
-				C080B46A268DAB3A003F3CE0 /* homeViewController.swift */,
-				C080B46C268DAB3A003F3CE0 /* Main.storyboard */,
 				C080B472268DAB3A003F3CE0 /* Assets.xcassets */,
-				C080B474268DAB3A003F3CE0 /* LaunchScreen.storyboard */,
 				C080B477268DAB3A003F3CE0 /* Info.plist */,
-				C080B46F268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld */,
 				C080B4A1268DB13E003F3CE0 /* fonts */,
-				C0D5420C2691AD5800F78016 /* GameViewController.swift */,
-				C0D5420E26923B5300F78016 /* Utils.swift */,
-				C02491F02699FE5D0014FF8B /* Score.swift */,
-				C050E7F8269B0FF800A1A982 /* TennisScorer.swift */,
 			);
 			path = TennisScorer;
 			sourceTree = "<group>";
@@ -227,13 +245,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D5420D2691AD5800F78016 /* GameViewController.swift in Sources */,
-				C080B471268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld in Sources */,
 				C080B46B268DAB3A003F3CE0 /* homeViewController.swift in Sources */,
 				C080B467268DAB3A003F3CE0 /* AppDelegate.swift in Sources */,
 				C050E7F9269B0FF800A1A982 /* TennisScorer.swift in Sources */,
 				C080B469268DAB3A003F3CE0 /* SceneDelegate.swift in Sources */,
 				C02491F12699FE5D0014FF8B /* Score.swift in Sources */,
-				C0D5420F26923B5300F78016 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,19 +516,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C080B46F268DAB3A003F3CE0 /* TennisScorer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C080B470268DAB3A003F3CE0 /* TennisScorer.xcdatamodel */,
-			);
-			currentVersion = C080B470268DAB3A003F3CE0 /* TennisScorer.xcdatamodel */;
-			path = TennisScorer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C080B45B268DAB3A003F3CE0 /* Project object */;
 }

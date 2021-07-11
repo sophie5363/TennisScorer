@@ -39,6 +39,7 @@
                                 <rect key="frame" x="409" y="272.5" width="78" height="30"/>
                                 <state key="normal" title="Start Game"/>
                                 <connections>
+                                    <action selector="initMatch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UhI-Bt-zVC"/>
                                     <segue destination="upP-sM-R0j" kind="show" identifier="showGameScreen" id="Nbw-rj-D5h"/>
                                 </connections>
                             </button>
@@ -48,9 +49,6 @@
                                     <segment title="Best of 3"/>
                                     <segment title="Best of 5"/>
                                 </segments>
-                                <connections>
-                                    <action selector="matchTypePressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="kmO-X5-zJC"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

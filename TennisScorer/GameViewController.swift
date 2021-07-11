@@ -197,32 +197,43 @@ class GameViewController: UIViewController {
             currentScoreP1.text = GameScore.love.rawValue
             currentScoreP2.text = GameScore.love.rawValue
             
-            if sharedTennisScorer!.score.sets[0].0 != 6 && sharedTennisScorer!.score.sets[0].1 != 6 {
-                sharedTennisScorer!.score.sets[0].0 += 1
-                scoreSet1P1.text = String(sharedTennisScorer!.score.sets[0].0)
+            do {
+                
+                
+                if sharedTennisScorer!.score.sets[0].0 != 6 && sharedTennisScorer!.score.sets[0].1 != 6 {
+                    sharedTennisScorer!.score.sets[0].0 += 1
+                    scoreSet1P1.text = String(sharedTennisScorer!.score.sets[0].0)
+                }
+                
+                if (sharedTennisScorer!.score.sets[0].0 == 6 || sharedTennisScorer!.score.sets[0].1 == 6) && (sharedTennisScorer!.score.sets[1].0 != 6 && sharedTennisScorer!.score.sets[1].1 != 6) {
+                    sharedTennisScorer!.score.sets[1].0 += 1
+                    scoreSet2P1.text = String(sharedTennisScorer!.score.sets[1].0)
+                }
+                
+                if (sharedTennisScorer!.score.sets[1].0 == 6 || sharedTennisScorer!.score.sets[1].1 == 6) && (sharedTennisScorer!.score.sets[2].0 != 6 && sharedTennisScorer!.score.sets[2].1 != 6) {
+                    sharedTennisScorer!.score.sets[2].0 += 1
+                    scoreSet3P1.text = String(sharedTennisScorer!.score.sets[2].0)
+                }
+                
+                if (sharedTennisScorer!.score.sets[2].0 == 6 || sharedTennisScorer!.score.sets[2].1 == 6) && (sharedTennisScorer!.score.sets[3].0 != 6 && sharedTennisScorer!.score.sets[3].1 != 6) {
+                    sharedTennisScorer!.score.sets[3].0 += 1
+                    scoreSet4P1.text = String(sharedTennisScorer!.score.sets[3].0)
+                }
+                
+                if (sharedTennisScorer!.score.sets[3].0 == 6 || sharedTennisScorer!.score.sets[3].1 == 6) && (sharedTennisScorer!.score.sets[4].0 != 6 && sharedTennisScorer!.score.sets[4].1 != 6) {
+                    sharedTennisScorer!.score.sets[4].0 += 1
+                    scoreSet5P1.text = String(sharedTennisScorer!.score.sets[4].0)
+                }
+                
+                whoWonBestOf5()
+                
+            } catch {
+                //
             }
             
-            if (sharedTennisScorer!.score.sets[0].0 == 6 || sharedTennisScorer!.score.sets[0].1 == 6) && (sharedTennisScorer!.score.sets[1].0 != 6 && sharedTennisScorer!.score.sets[1].1 != 6) {
-                sharedTennisScorer!.score.sets[1].0 += 1
-                scoreSet2P1.text = String(sharedTennisScorer!.score.sets[1].0)
-            }
             
-            if (sharedTennisScorer!.score.sets[1].0 == 6 || sharedTennisScorer!.score.sets[1].1 == 6) && (sharedTennisScorer!.score.sets[2].0 != 6 && sharedTennisScorer!.score.sets[2].1 != 6) {
-                sharedTennisScorer!.score.sets[2].0 += 1
-                scoreSet3P1.text = String(sharedTennisScorer!.score.sets[2].0)
-            }
-            
-            if (sharedTennisScorer!.score.sets[2].0 == 6 || sharedTennisScorer!.score.sets[2].1 == 6) && (sharedTennisScorer!.score.sets[3].0 != 6 && sharedTennisScorer!.score.sets[3].1 != 6) {
-                sharedTennisScorer!.score.sets[3].0 += 1
-                scoreSet4P1.text = String(sharedTennisScorer!.score.sets[3].0)
-            }
-            
-            if (sharedTennisScorer!.score.sets[3].0 == 6 || sharedTennisScorer!.score.sets[3].1 == 6) && (sharedTennisScorer!.score.sets[4].0 != 6 && sharedTennisScorer!.score.sets[4].0 != 6) {
-                sharedTennisScorer!.score.sets[4].0 += 1
-                scoreSet5P1.text = String(sharedTennisScorer!.score.sets[4].0)
-            }
 
-            whoWonBestOf5()
+      
         }
     }
     
@@ -247,31 +258,34 @@ class GameViewController: UIViewController {
             currentScoreP1.text = GameScore.love.rawValue
             currentScoreP2.text = GameScore.love.rawValue
             
-            if counterSet1P1 != 6 && counterSet1P2 != 6 {
-                counterSet1P2 += 1
-                scoreSet1P2.text = String(counterSet1P2)
+            if sharedTennisScorer!.score.sets[0].1 != 6 && sharedTennisScorer!.score.sets[0].0 != 6 {
+                sharedTennisScorer!.score.sets[0].1 += 1
+                scoreSet1P2.text = String(sharedTennisScorer!.score.sets[0].1)
             }
             
-            if (counterSet1P1 == 6 || counterSet1P2 == 6) && (counterSet2P1 != 6 && counterSet2P2 != 6) {
-                counterSet2P2 += 1
-                scoreSet2P2.text = String(counterSet2P2)
+            if (sharedTennisScorer!.score.sets[0].1 == 6 || sharedTennisScorer!.score.sets[0].0 == 6) && (sharedTennisScorer!.score.sets[1].1 != 6 && sharedTennisScorer!.score.sets[1].0 != 6) {
+                sharedTennisScorer!.score.sets[1].1 += 1
+                scoreSet2P2.text = String(sharedTennisScorer!.score.sets[1].1)
             }
             
-            if (counterSet2P1 == 6 || counterSet2P2 == 6) && (counterSet3P1 != 6 && counterSet3P2 != 6) {
-                counterSet3P2 += 1
-                scoreSet3P2.text = String(counterSet3P2)
+            if (sharedTennisScorer!.score.sets[1].1 == 6 || sharedTennisScorer!.score.sets[1].0 == 6) && (sharedTennisScorer!.score.sets[2].1 != 6 && sharedTennisScorer!.score.sets[2].0 != 6) {
+                sharedTennisScorer!.score.sets[2].1 += 1
+                scoreSet3P2.text = String(sharedTennisScorer!.score.sets[2].1)
             }
             
-            if (counterSet3P1 == 6 || counterSet3P2 == 6) && (counterSet4P1 != 6 && counterSet4P2 != 6) {
-                counterSet4P2 += 1
-                scoreSet4P2.text = String(counterSet4P2)
+            if (sharedTennisScorer!.score.sets[2].1 == 6 || sharedTennisScorer!.score.sets[2].0 == 6) && (sharedTennisScorer!.score.sets[3].1 != 6 && sharedTennisScorer!.score.sets[3].0 != 6) {
+                sharedTennisScorer!.score.sets[3].1 += 1
+                scoreSet4P2.text = String(sharedTennisScorer!.score.sets[3].1)
             }
             
-            if (counterSet4P1 == 6 || counterSet4P2 == 6) && (counterSet5P1 != 6 && counterSet5P2 != 6) {
-                counterSet5P2 += 1
-                scoreSet5P2.text = String(counterSet5P2)
+            if (sharedTennisScorer!.score.sets[3].1 == 6 || sharedTennisScorer!.score.sets[3].0 == 6) && (sharedTennisScorer!.score.sets[4].1 != 6 && sharedTennisScorer!.score.sets[4].0 != 6) {
+                sharedTennisScorer!.score.sets[4].1 += 1
+                scoreSet5P2.text = String(sharedTennisScorer!.score.sets[4].1)
             }
 
+            if sharedTennisScorer!. {
+                
+            }
             
             whoWonBestOf5()
             

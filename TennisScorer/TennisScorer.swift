@@ -9,16 +9,14 @@ import Foundation
 
 var sharedTennisScorer : TestableTennisScorer?
 
-class TennisScorer: TestableTennisScorer {
+class TennisScorer : TestableTennisScorer {
     
     //MARK: - PROPRIETES
-    
-    
+
     var score: Score
     var isOver: Bool
-    
     var tieBreak: Bool
-    var matchType: MatchType
+    let matchType: MatchType
     var currentSet: Int
     
     
@@ -26,7 +24,7 @@ class TennisScorer: TestableTennisScorer {
         currentSet = 0
         self.matchType = matchType
         tieBreak = tieBreakInLastSet
-        score = Score(sets: [(0, 0),(0,0),(0,0),(0,0),(0,0)], currentGame: (GameScore.love, GameScore.love))
+        score = Score(sets: [(0,0),(0,0),(0,0),(0,0),(0,0)], currentGame: (GameScore.love, GameScore.love))
         isOver = false
     }
     
@@ -35,6 +33,10 @@ class TennisScorer: TestableTennisScorer {
         if(currentSet >= matchType.rawValue){
             isOver = true
         }
+    }
+    
+    func getMatchType() -> Int {
+        return matchType.rawValue
     }
     
     func updateWithPointsByPlayer(_ player: Int) throws {

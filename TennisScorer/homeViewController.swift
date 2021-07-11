@@ -19,9 +19,9 @@ class homeViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
-
-    @IBAction func matchTypePressed(_ sender: UISegmentedControl) {
+    
+    
+    @IBAction func initMatch(_ sender: Any) {
         if(nbSetsGagnantsBtn.selectedSegmentIndex == 0)
         {
             sharedTennisScorer = TennisScorer(matchType: MatchType.bestOf3, tieBreakInLastSet: tieBreakBtn.isOn)
@@ -33,5 +33,7 @@ class homeViewController: UIViewController {
         }
         
     }
+    
+
 }
 
