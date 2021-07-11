@@ -48,6 +48,9 @@
                                     <segment title="Best of 3"/>
                                     <segment title="Best of 5"/>
                                 </segments>
+                                <connections>
+                                    <action selector="matchTypePressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="kmO-X5-zJC"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,6 +64,10 @@
                             <constraint firstItem="n4W-lY-NvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qh7-VJ-sMV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nbSetsGagnantsBtn" destination="n4W-lY-NvL" id="uhx-86-wco"/>
+                        <outlet property="tieBreakBtn" destination="CSQ-LM-tIv" id="pJx-1x-zzq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

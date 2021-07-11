@@ -7,7 +7,39 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, TestableTennisScorer {
+    
+    var homeVC = homeViewController()
+    
+    var matchType: MatchType
+    var isTieBreak: Bool
+    var score: Score
+    var isOver: Bool
+    var currentSet : Int
+    
+    
+    required init(matchType: MatchType, tieBreakInLastSet: Bool) {
+        currentSet = 0
+        self.matchType = matchType
+        tieBreak = tieBreakInLastSet
+        score = Score(sets: [(0, 0),(0,0),(0,0),(0,0),(0,0)], currentGame: (GameScore.love, GameScore.love))
+        isOver = false
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+
+    
+    func updateWithPointsByPlayer(_ player: Int) throws {
+        //do sthg
+    }
+    
+    func winner() throws -> Int {
+        //do sthg
+    }
+    
     
     //TODO: implémenter protocole equatable permet de définir les méthodes de comparaison
     
@@ -64,24 +96,8 @@ class GameViewController: UIViewController {
     var counterCurrentScoreP1: Int = 0
     var counterCurrentScoreP2: Int = 0
     
-    enum MatchType: Int {
-        case bestOf3 = 2
-        case bestOf5 = 3
-    }
-    
-    enum GameScore: String, Equatable {
-        case love = "00"
-        case fifteen = "15"
-        case thirty = "30"
-        case forty = "40"
-    }
-    
-//    struct Score: Equatable {
-//
-//        let sets: [(Int, Int)]
-//        let currentGame: (GameScore, GameScore)
-//
-//    }
+    let homeVC = homeViewController()
+
     
     
     //MARK: - HELPERS
@@ -123,6 +139,7 @@ class GameViewController: UIViewController {
         }
         
         if nbSetWonP2 == 2 {
+            
             // alert
             let alert = UIAlertController(title: "Match terminé",
                                           message: "Le vainqueur est le joueur 2",
@@ -205,8 +222,8 @@ class GameViewController: UIViewController {
         
         if (CounterGameP1 == 4) {
             CounterGameP1 = 0
-            currentScoreP1.text = "0"
-            currentScoreP2.text = "0"
+            currentScoreP1.text = GameScore.love.rawValue
+            currentScoreP2.text = GameScore.love.rawValue
             
             if counterSet1P1 != 6 && counterSet1P2 != 6 {
                 counterSet1P1 += 1
@@ -241,22 +258,22 @@ class GameViewController: UIViewController {
         CounterGameP2 += 1
         
         if (CounterGameP2 == 0) {
-            currentScoreP2.text = "0"
+            currentScoreP2.text = GameScore.love.rawValue
         }
         if (CounterGameP2 == 1) {
-            currentScoreP2.text = "15"
+            currentScoreP2.text = GameScore.fifteen.rawValue
         }
         if (CounterGameP2 == 2) {
-            currentScoreP2.text = "30"
+            currentScoreP2.text = GameScore.thirty.rawValue
         }
         if (CounterGameP2 == 3) {
-            currentScoreP2.text = "40"
+            currentScoreP2.text = GameScore.forty.rawValue
         }
         
         if (CounterGameP2 == 4) {
             CounterGameP2 = 0
-            currentScoreP1.text = "0"
-            currentScoreP2.text = "0"
+            currentScoreP1.text = GameScore.love.rawValue
+            currentScoreP2.text = GameScore.love.rawValue
             
             if counterSet1P1 != 6 && counterSet1P2 != 6 {
                 counterSet1P2 += 1
@@ -289,3 +306,4 @@ class GameViewController: UIViewController {
         }
     }
 }
+
